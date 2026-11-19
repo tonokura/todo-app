@@ -1,1 +1,32 @@
-/* ステップ1：ここに見た目を書いていこう */
+body{
+    background-color:;
+}
+
+header{
+    height: 300Px;
+    width: 100%;
+}
+
+
+main{
+    height: 700px;
+    width: 100%;
+    background-color:cadetblue;
+    background-size: cover;
+    position:relative;
+}
+
+.main-box{
+    height: 900px;
+    width: 700px;
+    background-color:rgba(255, 255, 255, 0.5);
+    position:absolute; 
+    top: 20%;
+    left:0;
+    right:0;
+
+    margin:0 auto;
+    
+
+}
+
