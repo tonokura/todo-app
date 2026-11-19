@@ -9,17 +9,23 @@
 <body>
  <header>
     <h1 class="header-title">Discipline</h1>
-     <h2 class="main-task">タスクを入力して下さい</h2>
-    
+  <div class="header-box">
+    <div id="today" class="date-display"></div>
+    <h2 class="main-task">今日やる事を入力して下さい</h2>
+    <div class="input-box"> 
+    <input type="text" id="task-input" placeholder="タスクを入力">　<!--placeholder=：中身に書く分が表示される-->
+    <button id="add-button">追加</button>
+   </div> 
+  </div>
   </header> 
 
   <main> 
     <div class="main-box">
-      <div class="header-calender">
-       <div id="today" class="date-display"></div>
-    </div>
+      <ul id="task-list" class="task-list"></ul>
     </div>
   </main>
+
+
 
   <footer>
   </footer>
