@@ -12,6 +12,10 @@ document.getElementById('add-button').addEventListener('click',function(){
     }else{document.createElement(`li`);//liタグを作る
         　const li=document.createElement('li');
         li.textContent = taskInput;//textContent：右側の文字を左に入れる
-        document.getElementById('task-list').appendChild(li);//tas
+        document.getElementById('task-list').appendChild(li);//task-listにliを追加
     }
 })
+
+document.getElementById('add-button').addEventListener('click', () => {
+    document.getElementById('task-input').value = '';
+}); 
