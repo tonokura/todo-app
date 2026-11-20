@@ -5,7 +5,7 @@ const day   = String(now.getDate()).padStart(2, '0');
 
 document.getElementById('today').textContent = `${year}/${month}/${day}`;//documen:html全体を指す。 get取ってくる　Element:要素　By：～を使って
 
-document.getElementById('add-button').addEventListener('click',function(){
+document.getElementById('add-button').addEventListener('click',function addTask(){
     const taskInput=document.getElementById('task-input').value;//入力された値を取得する
     if(taskInput===''){
         alert(`タスクを入力してください`);
@@ -16,6 +16,24 @@ document.getElementById('add-button').addEventListener('click',function(){
     }
 })
 
-document.getElementById('add-button').addEventListener('click', () => {
-    document.getElementById('task-input').value = '';
-}); 
+
+
+const addTask = () => {
+    const taskInput=document.getElementById('task-input').value;
+    if(taskInput===''){
+        alert(`タスクを入力してください`);
+    }else{
+        const li = document.createElement('li');
+        li.textContent = taskInput;
+        document.getElementById('task-list').appendChild(li);//task-listにliを追加
+        document.getElementById('task-input').value = '';//入力欄を空にする
+    }
+}
+
+document.getElementById('add-button').addEventListener('click', addTask);
+
+document.getElementById('task-input').addEventListener('keydown', (e) => {
+    if(e.key==='Enter'){
+        addTask();
+    }
+});
