@@ -20,6 +20,10 @@ const addTask = () => {
         span.className = 'task-text';
         span.textContent = taskInput;
 
+        checkbox.addEventListener('change', () => {  //昨日やったaddEventlistener　今回はchange { }の中で作った箱は、その中でしか使えない　｛｝の外に作ったため最初は動作しなかった
+        span.classList.toggle('finished'); //toggle:クラスの付け外しをする　finishedがついていなければつける、ついていれば外す
+        });
+
         // ② 組み立てる（入れた順に左から並ぶ）
         li.appendChild(checkbox);
         li.appendChild(span);
@@ -27,6 +31,9 @@ const addTask = () => {
         // ③ リストに入れて、入力欄を空にする
         document.getElementById('task-list').appendChild(li);//task-listにliを追加
         document.getElementById('task-input').value = '';//入力欄を空にする
+
+        
+
     }
 }
 

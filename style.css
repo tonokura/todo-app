@@ -54,3 +54,8 @@ main{
 
 }
 
+.finished{
+    text-decoration:line-through;
+    color: gray;
+
+}
