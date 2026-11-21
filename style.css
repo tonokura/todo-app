@@ -59,3 +59,12 @@ main{
     color: gray;
 
 }
+
+#task-list{
+    font-size: 30px;
+    list-style: none;
+}
+
+.task-checkbox{
+    margin-right: 15px;
+}

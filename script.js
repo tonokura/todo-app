@@ -15,6 +15,7 @@ const addTask = () => {
 
         const checkbox = document.createElement('input');//チェックボックス
         checkbox.type = 'checkbox';
+        checkbox.className = 'task-checkbox';
 
         const span = document.createElement('span');//タスクの文字
         span.className = 'task-text';
