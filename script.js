@@ -5,6 +5,8 @@ const day   = String(now.getDate()).padStart(2, '0');
 
 document.getElementById('today').textContent = `${year}/${month}/${day}`;//documen:html全体を指す。 get取ってくる　Element:要素　By：～を使って
 
+let tasks=[];
+
 const addTask = () => {
     const taskInput=document.getElementById('task-input').value;
     if(taskInput===''){
@@ -31,10 +33,9 @@ const addTask = () => {
 
         // ③ リストに入れて、入力欄を空にする
         document.getElementById('task-list').appendChild(li);//task-listにliを追加
+        tasks.push(taskInput);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
         document.getElementById('task-input').value = '';//入力欄を空にする
-
-        
-
     }
 }
 
