@@ -5,33 +5,36 @@ const day   = String(now.getDate()).padStart(2, '0');
 
 document.getElementById('today').textContent = `${year}/${month}/${day}`;//documen:html全体を指す。 get取ってくる　Element:要素　By：～を使って
 
-let tasks=[];
-const saved=localStorage.getItem('tasks');
+let tasks=[]// 変数tasksに空箱を作る
+const saved=localStorage.getItem('tasks');　// 定数saved　に保存していたtasksを入れる
 console.log(saved);
-if(saved !==null){
-    tasks=JSON.parse(saved);
+if(saved !==null){//そのsavedが空でなければ
+    tasks=JSON.parse(saved);//savedの中にある文字列を配列にもどす
 }
 
-const showTask = (text) =>{
+const showTask = (task) =>{//showTaskという名前のアロー関数
     const li = document.createElement('li');//1行分の入れ物
-
-        const checkbox = document.createElement('input');//チェックボックス
+    const checkbox = document.createElement('input');//チェックボックス
         checkbox.type = 'checkbox';
         checkbox.className = 'task-checkbox';
+        checkbox.checked=task.done;
 
         const span = document.createElement('span');//タスクの文字
         span.className = 'task-text';
-        span.textContent = text;
+        if (task.done) {
+        span.classList.add('finished');
+}
+        span.textContent = task.text;
 
         checkbox.addEventListener('change', () => {  //昨日やったaddEventlistener　今回はchange { }の中で作った箱は、その中でしか使えない　｛｝の外に作ったため最初は動作しなかった
         span.classList.toggle('finished'); //toggle:クラスの付け外しをする　finishedがついていなければつける、ついていれば外す
-        });
+        task.done = checkbox.checked;  //   最新の方（チェックボックス）を、古い方（task.done）に書き写す          
+        localStorage.setItem('tasks', JSON.stringify(tasks));    
+    });
 
         // ② 組み立てる（入れた順に左から並ぶ）
         li.appendChild(checkbox);
         li.appendChild(span);
-
-        // ③ リストに入れて、入力欄を空にする
         document.getElementById('task-list').appendChild(li);//task-listにliを追加
 };
 
@@ -47,8 +50,10 @@ const addTask = () => {
     if(taskInput===''){
         alert(`タスクを入力してください`);
     }else{
-        showTask(taskInput);
-        tasks.push(taskInput);
+        const newTask = { text: taskInput, done: false };   // 新しいタスクは、まだチェックなし 
+        showTask(newTask);
+        tasks.push(newTask);
+
         localStorage.setItem('tasks', JSON.stringify(tasks));
         document.getElementById('task-input').value = '';//入力欄を空にする
     }
