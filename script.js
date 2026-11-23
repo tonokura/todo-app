@@ -34,6 +34,7 @@ const showTask = (task) =>{//showTaskという名前のアロー関数
         checkbox.addEventListener('change', () => {  //昨日やったaddEventlistener　今回はchange { }の中で作った箱は、その中でしか使えない　｛｝の外に作ったため最初は動作しなかった
         span.classList.toggle('finished'); //toggle:クラスの付け外しをする　finishedがついていなければつける、ついていれば外す
         task.done = checkbox.checked;  //   最新の方（チェックボックス）を、古い方（task.done）に書き写す          
+        updateCount ();
         localStorage.setItem('tasks', JSON.stringify(tasks));    
     });
 
@@ -43,11 +44,23 @@ const showTask = (task) =>{//showTaskという名前のアロー関数
         document.getElementById('task-list').appendChild(li);//task-listにliを追加
 };
 
+const updateCount = ()=>{
+    const taskNumber = tasks.length;
+    let smallNumber = 0;
+    tasks.forEach((task)=>{
+        if (task.done===true){
+            smallNumber=smallNumber+1;
+    }
+    })
+    const footerTask = `${smallNumber}/${taskNumber}`;
+    document.getElementById('number').textContent=footerTask;
+
+};
 
 tasks.forEach((task) => {
     showTask(task);
-});
-
+   });
+ updateCount ();
 
 
 const addTask = () => {
@@ -58,6 +71,7 @@ const addTask = () => {
         const newTask = { text: taskInput, done: false };   // 新しいタスクは、まだチェックなし 
         showTask(newTask);
         tasks.push(newTask);
+        updateCount ();
 
         localStorage.setItem('tasks', JSON.stringify(tasks));
         document.getElementById('task-input').value = '';//入力欄を空にする
@@ -71,4 +85,6 @@ document.getElementById('task-input').addEventListener('keydown', (e) => {
         addTask();
     }
 });
+
+
 
