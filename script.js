@@ -2,10 +2,15 @@ const now   = new Date();//今日の日時を取得する
 const year  = now.getFullYear();//年を取り出してyearに入れる。
 const month = String(now.getMonth() + 1).padStart(2, '0');//String()：これは{}の中身を実行した後に文字列にする。
 const day   = String(now.getDate()).padStart(2, '0');
+const today = `${year}/${month}/${day}`;
+document.getElementById('today').textContent = today;//documen:html全体を指す。 get取ってくる　Element:要素　By：～を使って
+const savedDate = localStorage.getItem('date');
+localStorage.setItem('date', today);//localStorage.setItem(保存する名前, 保存する中身);
+if(savedDate!==today){//savedDateの中には前回開いた日付けが保存されているからそれをtodayと比べる
+    localStorage.removeItem('tasks');
+}
 
-document.getElementById('today').textContent = `${year}/${month}/${day}`;//documen:html全体を指す。 get取ってくる　Element:要素　By：～を使って
-
-let tasks=[]// 変数tasksに空箱を作る
+let tasks=[];// 変数tasksに空箱を作る
 const saved=localStorage.getItem('tasks');　// 定数saved　に保存していたtasksを入れる
 console.log(saved);
 if(saved !==null){//そのsavedが空でなければ
