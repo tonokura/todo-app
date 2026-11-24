@@ -24,3 +24,5 @@ HTML / CSS / JavaScript / localStorage
 localStorage.setItem/getItemの理解にも苦戦しました。特に削除ボタンを作った時、画面とデータの両方を修正して保存し直さないといけないという点で迷い、リロードすると消したはずのタスクが再表示されてしまうことに苦戦しました。
 
 ![画面](images/screenshot.png)
+
+https://tonokura.github.io/todo-app/
