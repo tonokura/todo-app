@@ -1,69 +1,76 @@
-body{
-    margin:0;
+body {
+    margin: 0;
+    background-color: #1f5fa8; /* 写真が読み込めなかったときの空色 */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("images/sunflower.jpg"); /* ページ全体に1枚の写真。全体を少し暗く */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* スクロールしても写真は動かない */
 }
 
-header{
-    height: 300Px;
+header {
+    height: 300px;
     width: 100%;
-    background-color:black;
-    color:white;
+    color: white;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0)); /* 上を暗くして白い文字を読みやすく。下に行くほど透明 */
 }
 
-.header-title{
+.header-title {
     padding: 20px 30px;
     margin-bottom: 0;
 }
-.header-box{
+
+.header-box {
     display: flex;
-    flex-direction: column;   /* 縦に並べる */
-    align-items: center;      /* 横の真ん中に寄せる */   
+    flex-direction: column;
+    /* 縦に並べる */
+    align-items: center;
+    /* 横の真ん中に寄せる */
 }
 
-#today{
+#today {
     font-size: 30px;
-    padding:0;
+    padding: 0;
     margin: 0px;
     font-weight: bold;
 }
 
-#task-input{
+#task-input {
     width: 400px;
     height: 40px;
-    font-size:20px;    
+    font-size: 20px;
 }
 
-.main-task h2{
+.main-task h2 {
     font-size: 30px;
     margin-top: 0px;
 }
 
 
-main{
+main {
     height: 500px;
     width: 100%;
-    background-color: gray;
-    display:flex;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
     padding-bottom: 0;
 }
 
 
-.main-box{
+.main-box {
     height: 500px;
     width: 800px;
-    background-color: white;
+    background-color: rgba(240, 240, 240, 0.88); /* 少しだけ透ける、少し暗めの白 */
     margin-bottom: 0;
     padding-bottom: 0;
 
 }
 
-.finished{
-    text-decoration:line-through;
+.finished {
+    text-decoration: line-through;
     color: gray;
 
 }
 
-#task-list{
+#task-list {
     font-size: 30px;
     list-style: none;
     display: flex;
@@ -72,11 +79,11 @@ main{
     height: 470px;
 }
 
-.task-checkbox{
+.task-checkbox {
     margin-right: 15px;
 }
 
-#number{
+#number {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,18 +93,24 @@ main{
     width: 150px;
 }
 
-#count{
+#count {
     display: flex;
     justify-content: center;
-    position:relative;
+    position: relative;
 }
 
-footer{
-    background-color: black;
+footer {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)); /* 上は透明で境目を無くし、下に行くほど暗く */
 }
 
-.deleteButton{
-    margin-left: 15px;
+.deleteButton {
     font-weight: bold;
-    background-color: darkred ;
+    background-color: darkred;
+    margin-left: auto;
+}
+
+#task-list li {
+    display: flex;
+    width: 300px;
+    align-items: center;
 }
