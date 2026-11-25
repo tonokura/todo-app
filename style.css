@@ -132,7 +132,8 @@ footer {
     }
 
     .main-box {
-        min-height: 300;
+        height: auto;
+        min-height: 300px;
     }
 
     #task-list {
