@@ -35,10 +35,14 @@ header {
 }
 
 #task-input {
-   width: 100%;
+    width: 70%;
     max-width: 400px;   /* 今まで width に書いていた数字 */
     height: 40px;
     font-size: 20px;
+}
+
+#add-button{
+    flex-grow: 1;
 }
 
 .main-task h2 {
@@ -148,7 +152,26 @@ footer {
 
     #task-input {
         max-width: 300px;
+        width: 200px;
+        height: 40px;
+        margin-bottom: 25px;
     }
 
-    
+    #today {
+        font-size: 15px;
+        font-weight: lighter;
+    }
 
+    .main-task{
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+    .header-title{
+        font-size: 25px;
+        font-weight: lighter;
+        padding-bottom: 0%;
+        margin-bottom: 0%;
+    }
+
+}
