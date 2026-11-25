@@ -35,7 +35,8 @@ header {
 }
 
 #task-input {
-    width: 400px;
+   width: 100%;
+    max-width: 400px;   /* 今まで width に書いていた数字 */
     height: 40px;
     font-size: 20px;
 }
@@ -57,7 +58,8 @@ main {
 
 .main-box {
     height: 500px;
-    width: 800px;
+    width: 100%;
+    max-width: 800px;   /* 今まで width に書いていた数字 */
     background-color: rgba(240, 240, 240, 0.88); /* 少しだけ透ける、少し暗めの白 */
     margin-bottom: 0;
     padding-bottom: 0;
@@ -113,4 +115,33 @@ footer {
     display: flex;
     width: 300px;
     align-items: center;
+}
+
+@media (max-width: 600px) {
+
+    body {
+        background-attachment: scroll;
+    }
+
+    header {
+        height: auto;
+    }
+
+    main {
+        height: auto;
+    }
+
+    .main-box {
+        min-height: 300;
+    }
+
+    #task-list {
+        flex-wrap: nowrap;
+        height: auto;
+    }
+
+    #task-list li {
+        width: 100%;
+        font-size: 20px;
+    }
 }
